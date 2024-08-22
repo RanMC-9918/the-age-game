@@ -35,7 +35,7 @@ loading = "false";
 function loadNewStudent(id) {
   fetch(url + "/api/" + id)
     .then((response) => {
-      if (!response.ok || studentNum > 3) {
+      if (!response.ok) {
         alert(
           "You have exhausted our list of students 😅. \n Please add more students to this list: https://docs.google.com/spreadsheets/d/1VP6qbS5aN7p9ffNe3-yUo2puLxeFXA1rMKXKtIq8cX0/edit?usp=sharing"
         );
