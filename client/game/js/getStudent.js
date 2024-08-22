@@ -3,7 +3,7 @@ const studentElem = document.getElementById("student");
 const studentImg = document.getElementById("studentImg");
 const indicator = document.getElementById("indicator");
 let answer;
-let url = "https://the-age-game.onrender.com";
+let url = process.env.url || "http://localhost:5500";
 loadNewStudent(studentNum);
 let selected;
 const choices = document.getElementsByClassName("answer-choices");

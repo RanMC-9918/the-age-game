@@ -29,14 +29,14 @@ app.get("/api/:id", function (req, res) {
   console.log("new api call");
   let studentNum = req.params.id;
   res.send(
-    results[id][2] + "\n" +
+    results[studentNum][2] + "\n" +
       results[studentNum][1]
   );
 });
 
 app.get("/images/:id", (req, res) => {
   console.log("new image call: " + req.params.id);
-  res.sendFile(`images/${req.params.id}.jpg`, { root: __dirname );
+  res.sendFile(`images/${req.params.id}.jpg`, { root: __dirname });
 });
 
 app.get("/game", (req, res) => {
