@@ -1,24 +1,25 @@
 const express = require("express");
+const process = require("process");
 const { parse } = require("csv-parse");
 const fs = require("fs");
-let results = [];
+let results = getValues();
 
-fs.createReadStream("./students.csv")
-  .pipe(parse({ delimiter: ",", from_line: 1 }))
-  .on("data", (row) => {
-    console.log(row);
-    results.push(row);
-  })
-  .on("error", (error) => {
-    console.error(error.message);
-  })
-  .on("end", () => {
-    console.log("Finished reading CSV file");
-  });
+// fs.createReadStream("./students.csv")
+//   .pipe(parse({ delimiter: ",", from_line: 1 }))
+//   .on("data", (row) => {
+//     console.log(row);
+//     results.push(row);
+//   })
+//   .on("error", (error) => {
+//     console.error(error.message);
+//   })
+//   .on("end", () => {
+//     console.log("Finished reading CSV file");
+//   });
 
 const app = express();
 
-const port = process.env.PORT || 5500; // set port to either environment variable or 5500 if not set
+let port = process.env.PORT || 5500;
 
 app.listen(port);
 console.log("listening on port " + port);
@@ -28,10 +29,7 @@ app.use(express.static("client"));
 app.get("/api/:id", function (req, res) {
   console.log("new api call");
   let studentNum = req.params.id;
-  res.send(
-    results[studentNum][2] + "\n" +
-      results[studentNum][1]
-  );
+  res.send(results[studentNum][2] + "\n" + results[studentNum][1]);
 });
 
 app.get("/images/:id", (req, res) => {
@@ -42,3 +40,24 @@ app.get("/images/:id", (req, res) => {
 app.get("/game", (req, res) => {
   express.static("client\\game");
 });
+
+//google API====================================================================================
+
+async function getValues() {
+  const { google } = require("googleapis");
+
+  const auth = await google.auth.getClient({
+    scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+  });
+
+  const service = google.sheets({ version: "v4", auth });
+  let spreadsheetId = "1VP6qbS5aN7p9ffNe3-yUo2puLxeFXA1rMKXKtIq8cX0";
+  let range = "Sheet1!A1:C20";
+
+  let response = await service.spreadsheets.values.get({
+    spreadsheetId,
+    range,
+  });
+
+  return response.data.values;
+}
