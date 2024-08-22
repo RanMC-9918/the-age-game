@@ -1,0 +1,98 @@
+body {
+  background: rgb(0, 23, 51);
+  color: aliceblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+h1 {
+    display: block;
+  font-size: 2em;
+  margin-bottom: 20px;
+  width: auto;
+  margin-top: 5vh;
+}
+
+h2 {
+  font-size: 1.3em;
+  margin-bottom: 20px;
+  margin-top: 5vh;
+}
+
+h3{
+    color: rgb(182, 195, 207);
+}
+
+button {
+    color: rgb(8, 11, 61);
+    background-color: aliceblue;
+    padding: 0.5em;
+    font-size: 1.7em;
+    border: 5px solid rgb(71, 70, 114);
+    border-radius: 0.5em;
+    font-weight: bold;
+    transition:all 0.3s;
+    box-shadow: 2px 2px 20px rgba(255, 255, 255, 0.199);
+    margin-top: 5vh;
+}
+
+button:hover {
+    background-color: rgb(153, 192, 228);
+    scale: 1.1;
+}
+
+
+#studentImg {
+  width: 30vw;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20%;
+  margin-top: 10px;
+}
+
+.title-form { 
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+}
+
+#arrow {
+    rotate: 110deg;
+    
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 3%;
+}
+
+.column {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3%;
+}
+
+    
+#sample {
+    width: 40vw;
+    object-fit: cover;
+}
+
+@media (min-width: 720px) {
+    #sample {
+    width: 20vw;
+    }
+    h1 {
+    font-size: 3em;
+    }
+    h2 {
+    font-size: 2em;
+    }
+}
+
+#sample-text{
+    rotate: -6deg;
+}
