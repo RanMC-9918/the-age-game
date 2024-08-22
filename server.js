@@ -28,7 +28,12 @@ app.use(express.static("client"));
 app.get("/api/:id", function (req, res) {
   console.log("new api call");
   let studentNum = req.params.id;
-  res.send("http:/images/" + studentNum + "\n" + results[studentNum][0]);
+  res.send(
+    "https://the-age-game.onrender.com/images/" +
+      studentNum +
+      "\n" +
+      results[studentNum][0]
+  );
 });
 
 app.get("/images/:id", (req, res) => {
@@ -37,5 +42,5 @@ app.get("/images/:id", (req, res) => {
 });
 
 app.get("/game", (req, res) => {
-   express.static("client\\game");
-})
+  express.static("client\\game");
+});
