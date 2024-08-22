@@ -3,7 +3,7 @@ const studentElem = document.getElementById("student");
 const studentImg = document.getElementById("studentImg");
 const indicator = document.getElementById("indicator");
 let answer;
-let url = "http://localhost:5500";
+let url = "https://the-age-game.onrender.com";
 loadNewStudent(studentNum);
 let selected;
 const choices = document.getElementsByClassName("answer-choices");
@@ -47,10 +47,8 @@ function loadNewStudent(id) {
       return data; // Assuming the API returns
     })
     .then((data) => {
-      console.log("API call successful");
-      console.log(data); // Do something with the data
+      console.log("API call successful"); // Do something with the data
       answer = data.split("\n")[1];
-      console.log(answer);
       store(data.split("\n")[0]);
     })
     .catch((error) => {
