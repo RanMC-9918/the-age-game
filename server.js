@@ -38,7 +38,7 @@ app.get("/api/:id", function (req, res) {
 
 app.get("/images/:id", (req, res) => {
   console.log("new image call: " + req.params.id);
-  res.sendFile(`./images\\${req.params.id}.jpg`);
+  res.sendFile(`images/${req.params.id}.jpg`, { root: __dirname });
 });
 
 app.get("/game", (req, res) => {
