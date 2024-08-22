@@ -29,7 +29,7 @@ app.get("/api/:id", function (req, res) {
   console.log("new api call");
   let studentNum = req.params.id;
   res.send(
-    results[id][2 + "\n" +
+    results[id][2] + "\n" +
       results[studentNum][1]
   );
 });
