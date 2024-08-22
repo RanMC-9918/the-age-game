@@ -15,7 +15,6 @@ h1 {
 
 h2 {
   font-size: 1.3em;
-  margin-bottom: 20px;
   margin-top: 5vh;
 }
 
@@ -34,6 +33,7 @@ button {
     transition:all 0.3s;
     box-shadow: 2px 2px 20px rgba(255, 255, 255, 0.199);
     margin-top: 5vh;
+    margin:auto;
 }
 
 button:hover {
@@ -66,6 +66,7 @@ button:hover {
     justify-content: center;
     flex-direction: row;
     padding: 3%;
+    margin-top: 10vh;
 }
 
 .column {
