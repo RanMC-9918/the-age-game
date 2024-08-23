@@ -3,6 +3,7 @@ const process = require("process");
 const { parse } = require("csv-parse");
 const fs = require("fs");
 let results = getValues();
+console.log(results);
 
 // fs.createReadStream("./students.csv")
 //   .pipe(parse({ delimiter: ",", from_line: 1 }))
@@ -28,6 +29,7 @@ app.use(express.static("client"));
 
 app.get("/api/:id", function (req, res) {
   console.log("new api call");
+
   let studentNum = req.params.id;
   res.send(results[studentNum][2] + "\n" + results[studentNum][1]);
 });
@@ -46,18 +48,24 @@ app.get("/game", (req, res) => {
 async function getValues() {
   const { google } = require("googleapis");
 
-  const auth = await google.auth.getClient({
-    scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+  const auth = await new google.auth.GoogleAuth({
+    keyFile: "secrets.json",
+    scopes: "https://www.googleapis.com/auth/spreadsheets.readonly",
   });
 
-  const service = google.sheets({ version: "v4", auth });
+  const client = await auth.getClient();
+  const service = google.sheets({ version: "v4", auth: client });
+
   let spreadsheetId = "1VP6qbS5aN7p9ffNe3-yUo2puLxeFXA1rMKXKtIq8cX0";
   let range = "Sheet1!A1:C20";
 
   let response = await service.spreadsheets.values.get({
+    auth,
     spreadsheetId,
     range,
   });
 
+  console.log(response.data.values);
+  results = response.data.values;
   return response.data.values;
 }
