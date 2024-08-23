@@ -68,6 +68,7 @@ function store(item) {
 
 function correct() {
   indicator.style.zIndex = "100";
+  indicator.style.backgroundColor = "green";
   indicator.style.animation = "indicate 0.5s ease-in-out";
   setTimeout(() => {
     indicator.style.animation = "";
