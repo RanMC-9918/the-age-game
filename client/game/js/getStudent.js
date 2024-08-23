@@ -36,8 +36,11 @@ function loadNewStudent(id) {
   fetch(url + "/api/" + id)
     .then((response) => {
       if (!response.ok) {
+        window.location.reload(
+          "https://docs.google.com/forms/d/e/1FAIpQLSfKbyc9mDi9VnIuHq6cocY-C7ofvw6GSCDqiGgakm7kV-pUhw/viewform?usp=sf_link"
+        );
         alert(
-          "You have exhausted our list of students 😅. \n Please add more students to this list: https://docs.google.com/spreadsheets/d/1VP6qbS5aN7p9ffNe3-yUo2puLxeFXA1rMKXKtIq8cX0/edit?usp=sharing"
+          "You have exhausted our list of students 😅. \n You have been redirected to the add more students form."
         );
         throw new Error("Network response was not ok");
       }
