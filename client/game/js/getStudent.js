@@ -25,6 +25,8 @@ studentElem.onclick = () => {
     correct();
   } else {
     incorrect();
+    loadNewStudent(studentNum);
+    studentNum--;
   }
   studentNum++;
   loadNewStudent(studentNum);
