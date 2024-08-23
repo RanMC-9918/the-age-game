@@ -31,6 +31,9 @@ app.get("/api/:id", function (req, res) {
   console.log("new api call");
 
   let studentNum = req.params.id;
+  if (results[studentNum][2] == "END") {
+    res.status(403);
+  }
   res.send(results[studentNum][2] + "\n" + results[studentNum][1]);
 });
 
