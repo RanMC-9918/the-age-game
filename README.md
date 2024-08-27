@@ -1,0 +1,4 @@
+	This is a project I solo-developed that lets people guess the age of students. I used Node.js and Express.js to distrubute the website to clients. The client website would sent a fetch request to the server's API which would return the link to the picture of the student as well as their grade. One day my friends asked me to add them to the website and I relzed how long it took to edit the CSV in the code and then redeploy its. To solve this, I connected the website's backend to the google sheets API and downloaded the data from there, so that I could change the data and add more students right in the google sheets app. 
+
+ Google Sheets Link: https://docs.google.com/spreadsheets/d/1VP6qbS5aN7p9ffNe3-yUo2puLxeFXA1rMKXKtIq8cX0/edit?usp=sharing
+ The link to the website is on the right of your screen. 
