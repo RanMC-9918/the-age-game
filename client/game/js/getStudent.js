@@ -10,6 +10,11 @@ const choices = document.getElementsByClassName("answer-choices");
 
 for (let i = 0; i < choices.length; i++) {
   choices[i].onclick = () => {
+      choices[0].style = "background-color: transparent
+      choices[1].style = "background-color: transparent
+      choices[2].style = "background-color: transparent
+      choices[3].style = "background-color: transparent
+      choices[i].style = "background-color: #7b7;
     selected = i;
   };
 }
